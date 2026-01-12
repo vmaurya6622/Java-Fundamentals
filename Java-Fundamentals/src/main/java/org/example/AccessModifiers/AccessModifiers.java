@@ -17,5 +17,39 @@ JAVA has its 4 types:
  */
 public class AccessModifiers {
     // private
-    
+    private int privatevar = 10;
+    private void privateMethod() {
+        System.out.println("Private method Accessed from here!");
+    }
+    //default
+    int a=11;
+    void defaultMethod() {
+        System.out.println("Default method Accessed from here!");
+    }
+    //protected
+    protected int protectedvar = 21;
+    protected void protectedMethod() {
+        System.out.println("Protected method Accessed from here!");
+    }
+    //public
+    public int publicvar = 31;
+    public void publicMethod() {
+        System.out.println("Public method Accessed from here!");
+    }
+
+    public static void main(String[] args) {
+        AccessModifiers obj=new AccessModifiers();
+        System.out.println("Private Value: "+obj.privatevar);
+        obj.privateMethod();
+
+        System.out.println("Default Value: "+obj.a);
+        obj.defaultMethod();
+
+        System.out.println("ProtectedValue: "+obj.protectedvar);
+        obj.protectedMethod();
+
+        System.out.println("Public Value: "+obj.publicvar);
+        obj.publicMethod();
+    }
 }
+// for simplicity of the code i have just shown initialisation i can also show how these ACCESS MODIFIERS work if you want.
