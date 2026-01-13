@@ -14,6 +14,7 @@ JAVA has its 4 types:
   -> default:
         - when no keyword is used. accessible only in same package.
         - mainly used for internal package-level logics.
+ Access modifier helps to make code more modular and controlled.
  */
 public class AccessModifiers {
     // private
