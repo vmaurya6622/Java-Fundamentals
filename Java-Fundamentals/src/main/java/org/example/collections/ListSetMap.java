@@ -76,9 +76,30 @@ public class ListSetMap {
         h.add("a");
         h.add("cross");
         System.out.println("Printing HashSet: "+h);
-        System.out.println("Printing HashSet: "+h);
         h.remove("marry");
+        System.out.println("Printing HashSet After Removing: "+h);
+//      TreeSet
+        TreeSet<String> ts = new TreeSet<>();
+        ts.add("marry");
+        ts.add("on");
+        ts.add("a");
+        ts.add("cross");
+        System.out.println("Printing TreeSet: "+ts);
+        ts.remove("marry");
+        System.out.println("Printing TreeSet After Removing: "+ts);
+        System.out.println("First Element: "+ts.first());
+        System.out.println("Last Element: "+ts.last());
 
+//      Maps
+//      HashMap
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        hm.put(1,11);
+        hm.put(2,22);
+        hm.put(3,33);
+        System.out.println("Printing HashMap: "+hm);
+        System.out.println("Value at key 2: "+hm.get(2));
+        hm.remove(1);
+        System.out.println("Printing HashMap After Removing: "+hm);
 
     }
 }
