@@ -100,6 +100,14 @@ public class ListSetMap {
         System.out.println("Value at key 2: "+hm.get(2));
         hm.remove(1);
         System.out.println("Printing HashMap After Removing: "+hm);
-
+//      TreeMap
+        TreeMap<Integer,String> tm = new TreeMap<>();
+        tm.put(1,"one");
+        tm.put(2,"two");
+        tm.put(3,"three");
+        System.out.println("Printing TreeMap: "+tm);
+        System.out.println("Value at key 3: "+tm.get(3));
+        tm.remove(2);
+        System.out.println("Printing HashMap After Removing: "+tm);
     }
 }
