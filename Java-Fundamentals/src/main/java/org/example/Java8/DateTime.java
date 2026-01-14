@@ -16,10 +16,7 @@ package org.example.Java8;
 */
 
 import java.sql.SQLOutput;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.util.Set;
 
 public class DateTime {
@@ -46,6 +43,20 @@ public class DateTime {
         //Zoned DateTime
         ZonedDateTime zonedDateTime = ZonedDateTime.now();
         System.out.println("Printing using ZonedDateTime: "+zonedDateTime);
-//        Set<String> availableidsforzone =
+        Set<String> availableidsforzone = ZoneId.getAvailableZoneIds();
+        System.out.println("Available Zone Ids for Zone: "+availableidsforzone);
+
+        //Instant
+        long l=System.currentTimeMillis(); // to get current millisecond
+        Instant timeInstant = Instant.now();
+        System.out.println("Using Instant "+timeInstant);
+
+        //Time Duration
+        Instant start = Instant.now();
+        int sum=0;
+        for(int i=0;i<10000;i++){sum+=i;}
+        Instant end = Instant.now();
+        Duration totalDurationBetween =  Duration.between(start, end);
+        System.out.println("Total duration of code run is: "+totalDurationBetween.toMillis()+" milliseconds");
     }
 }

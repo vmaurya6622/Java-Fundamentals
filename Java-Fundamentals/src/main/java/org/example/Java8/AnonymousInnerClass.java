@@ -8,7 +8,7 @@ interface NGO{
     int funding();
     String getName();
 }
-public class AnonymuousInnerClass {
+public class AnonymousInnerClass {
     static void main() {
         NGO normal= new NGO() {
             @Override
