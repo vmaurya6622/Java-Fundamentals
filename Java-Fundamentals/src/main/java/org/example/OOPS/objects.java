@@ -17,20 +17,20 @@ public class objects {
         this.age = age;
     }
     public String getName() {return name;}
-    public float getage() {return age;}
+    public float age() {return age;}
     public void setName(String name) {this.name = name;}
-    public void setage(float age) {this.age = age;}
-    public void showdetails(){
+    public void setAge(float age) {this.age = age;}
+    public void showDetails(){
         System.out.println("Name: "+name);
         System.out.println("Age: "+age);
     }
     static void main() {
         objects a = new objects("A", 30);
         System.out.println("Printing Name: "+a.getName());
-        System.out.println("Printing Age: "+a.getage());
-        a.setage(10);
-        System.out.println("Printing Age after using setAge: "+a.getage());
+        System.out.println("Printing Age: "+a.age());
+        a.setAge(10);
+        System.out.println("Printing Age after using setAge: "+a.age());
         System.out.println("printing Object Information: ");
-        a.showdetails();
+        a.showDetails();
     }
 }

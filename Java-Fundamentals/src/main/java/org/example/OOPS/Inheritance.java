@@ -17,7 +17,18 @@ class father{
         System.out.println("Father is kicking");
     }
 }
-class son exte
-public class Inheritence {
-
+class son extends father{
+    void play(){
+        System.out.println("Son is playing");
+    }
+}
+public class Inheritance {
+    static void main() {
+        son s = new son();
+        // Inherited methods from the parent i.e. parent characteristics
+        s.smile();
+        s.kick();
+        // child class method i.e. child's characteristics
+        s.play();
+    }
 }
