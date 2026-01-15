@@ -17,6 +17,7 @@ package org.example.Java8;
 
 import java.sql.SQLOutput;
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
 public class DateTime {
@@ -54,9 +55,14 @@ public class DateTime {
         //Time Duration
         Instant start = Instant.now();
         int sum=0;
-        for(int i=0;i<10000;i++){sum+=i;}
+        for(int i=0;i<1000000;i++){sum+=i;}
         Instant end = Instant.now();
         Duration totalDurationBetween =  Duration.between(start, end);
         System.out.println("Total duration of code run is: "+totalDurationBetween.toMillis()+" milliseconds");
+
+        //Date time formatter
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String format = localDate.format(formatter);
+        System.out.println("Using DateTimeFormatter: "+format);
     }
 }
