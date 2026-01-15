@@ -31,16 +31,17 @@ public class java8 {
                 In here the compiler creates a new anonymous class implementing Animal where variable "cat" holds a reference to this
                 anonymous class object.
          */
-         List<String> lis = new ArrayList<>(Arrays.asList("Hello", "World","blast by trump"));
+         List<String> lis = new ArrayList<>(Arrays.asList("Helloooooooooooooooooooooooooooo", "World","blast by trump"));
          Collections.sort(lis, new Comparator<String>() {
              @Override
              public int compare(String o1, String o2) {
                  return Integer.compare(o1.length(), o2.length());
              }
          });
-         List<String> lis2 =  new ArrayList<>(Arrays.asList("Hello", "World","blast by trump"));
+         List<String> lis2 =  new ArrayList<>(Arrays.asList("Helloooooooooooooooooooooooooooo", "World","blast by trump"));
          lis2.sort((s1,s2)->Integer.compare(s1.length(),s2.length()));
-        System.out.println(lis);
+        System.out.println("Sorting without Lambda Function: "+lis);
+        System.out.println("Sorting with Lambda Function: "+lis2);
         /*
         Advantages includes: Easier to understand and read; less overhead and functional style.
          */
