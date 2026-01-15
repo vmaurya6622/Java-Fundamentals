@@ -7,11 +7,23 @@ package org.example.multithreading;
             - it uses mutex locks which allows one thread at a time to access a shared resource.
             - Other who want to access have to wait until the lock is released by currently running thread.
  */
-class Counter {
-    private int count = 0;
+class MyCounterFunctionWithSync {
+    private static int count = 0;
 
     //synchronized method - because this will be used by two threads
-    public synchronized void increment() {
+    public static synchronized void increment() {
+        count++;
+    }
+
+    public int getCount(){
+        return count;
+    }
+}
+class MyCounterFunctionNoSync {
+    private static int count = 0;
+
+    //synchronized method - because this will be used by two threads
+    public static void increment() {
         count++;
     }
 
@@ -21,13 +33,13 @@ class Counter {
 }
 public class Synchronised {
     static void main() throws InterruptedException {
-        Counter counter = new Counter();
+        MyCounterFunctionNoSync temp = new MyCounterFunctionNoSync();
 
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 for(int i=0 ; i<100000 ; i++) {
-                    counter.increment();
+                    temp.increment();
                 }
             }
         });
@@ -36,17 +48,44 @@ public class Synchronised {
             @Override
             public void run() {
                 for(int i=0 ; i<100000 ; i++) {
-                    counter.increment();
+                    temp.increment();
                 }
             }
         });
 
         t1.start();
         t2.start();
-
         t1.join();
         t2.join();
 
-        System.out.println("Final count : " + counter.getCount());
+        System.out.println("Final count Without using Synchronized: " + temp.getCount());
+        
+        
+        // Adding synchronised method now!
+        MyCounterFunctionWithSync objj = new MyCounterFunctionWithSync();
+        Thread t11 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i=0 ; i<100000 ; i++) {
+                    objj.increment();
+                }
+            }
+        });
+
+        Thread t22 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i=0 ; i<100000 ; i++) {
+                    objj.increment();
+                }
+            }
+        });
+
+        t11.start();
+        t22.start();
+        t11.join();
+        t22.join();
+
+        System.out.println("Final count using Synchronized: " + objj.getCount());
     }
 }
