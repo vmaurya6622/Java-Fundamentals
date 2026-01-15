@@ -10,7 +10,7 @@ package org.example.Java1017;
             - Matches specific values and patterns in the string or value.
  */
 
-public class PatterMatchingSwitch {
+public class PatternMatchingSwitch {
     public static String describe(Object obj1){
         //using switch-case to describe the type of the object.
         return switch(obj1){
