@@ -35,7 +35,8 @@ public class Executorz {
         ScheduledExecutorService schedules = Executors.newScheduledThreadPool(2);
         schedules.scheduleAtFixedRate(()->{
             System.out.println("Task is being executed every 10 seconds.");
-        },1,10,TimeUnit.SECONDS); // delay of 1 seconds and runs every 10 seconds
+        },1,10,TimeUnit.SECONDS); // delay of 1 seconds and runs every 10 seconds and if the task takes
+        // more than 10 seconds then the run is delayed until it finishes.
 
         schedules.schedule(()->{
             System.out.println("Task is being executed every 10 seconds.");
