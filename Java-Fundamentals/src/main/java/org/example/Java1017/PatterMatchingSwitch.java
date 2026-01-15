@@ -1,6 +1,6 @@
 package org.example.Java1017;
 /*
-    -> pattern matching is a way of describing a structure or behaviour in data so we can check for it.
+    -> Introduced in Java17, pattern matching is a way of describing a structure or behaviour in data so we can check for it.
     -> so, if the code recognises something like the parameter given then do the specified task.
 
     Types:
