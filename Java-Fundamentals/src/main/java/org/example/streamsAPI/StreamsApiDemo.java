@@ -1,4 +1,4 @@
-package org.example.streams;
+package org.example.streamsAPI;
 /*
     -> streams were introduced in java-8, the stream API is primarily used to process collection of objects.
     -> A stream in java is a sequence to object tat supports various methods that can be pipelined to produce result.
