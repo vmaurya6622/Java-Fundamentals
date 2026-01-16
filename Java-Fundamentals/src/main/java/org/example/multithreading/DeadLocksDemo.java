@@ -14,49 +14,50 @@ import static java.lang.Thread.sleep;
 
 public class DeadLocksDemo {
     static void main() {
-        String lock1 = "LOCK1";
-        String lock2 = "LOCK2";
+        String LockA = "LockA";
+        String LockB = "LockB";
 
         Thread t1 = new Thread(() -> {
-            System.out.println("T1 tyring to lock LOCK1");
-            synchronized (lock1) {
-                System.out.println("T1 locked LOCK1");
+            System.out.println("T1 tyring to reserve LockA");
+            synchronized (LockA) {
+                System.out.println("T1 reserved LockA");
                 try {
                     sleep(200);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                System.out.println("T1 trying to lock LOCK2");
-                synchronized (lock2) {
-                    System.out.println("T1 locked LOCK2");
-                    System.out.println("T1 has both LOCK1 and LOCK2");
+                System.out.println("T1 trying to reserve LockB");
+                synchronized (LockB) {
+                    System.out.println("T1 reserved LockB");
+                    System.out.println("T1 has both LockA and LockB");
                 }
 
-                System.out.println("T1 released LOCK2");
+                System.out.println("T1 released LockB");
             }
 
-            System.out.println("T1 released LOCK1");
+            System.out.println("T1 released LockA");
         });
 
         Thread t2 = new Thread(() -> {
-            System.out.println("T2 tyring to lock LOCK2");
-            synchronized (lock2) {
-                System.out.println("T2 locked LOCK2");
+            System.out.println("T2 tyring to reserve LockB");
+            synchronized (LockB) {
+                System.out.println("T2 reserved LockB");
                 try {
                     sleep(200);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                System.out.println("T2 trying to lock LOCK1");
-                synchronized (lock1) {
-                    System.out.println("T2 locked LOCK1");
-                    System.out.println("T2 has both LOCK1 and LOCK2");
+                System.out.println("T2 trying to reserve LockA");
+                synchronized (LockA) {
+                    System.out.println("T2 reserved LockA");
+                    System.out.println("T2 has both LockA and LockB");
                 }
-                System.out.println("T2 released LOCK1");
+                System.out.println("T2 released LockA");
             }
-            System.out.println("T2 released LOCK2");
+            System.out.println("T2 released LockB");
         });
         t1.start();
         t2.start();
+        System.out.println("Code is ended.."); // this will not be printed due to deadlock situation.
     }
 }
